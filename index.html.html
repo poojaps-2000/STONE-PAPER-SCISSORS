@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="sps.js">
+</head>
+<body>
+    <style>
+        p{
+            color: black;
+            font-size: 1.5em;
+            text-align: center;
+        }
+        body{
+            background-image: url("bb.jpg");
+            
+        }
+      .jumbotron{
+            border-radius: 14em;
+            width: 10em;
+            align-content: center;
+            text-align: center;
+            height: 10em;
+            background-color:black;
+            color: floralwhite;
+            text-align: center;
+            transition: 0.3s all ease-in-out; 
+        }
+        .jumbotron:hover{
+            background: transparent;
+            color: black;
+            transform: scale(1.5); 
+        }
+        h1{
+            text-align: center;
+            color:floralwhite ;
+            font-size: 6em;
+            background-color:black;
+            animation: reverse;
+        }
+        #score1,#score2{
+            background-color:black;
+            font-size: 3em;
+            width: 4em;
+            border-radius: 9em;
+        }
+        .wrapper {
+            text-align: center;
+        }
+
+        .button {
+            position: absolute;
+            top: 50%;
+        }
+        img { 
+        transition: 0.3s all ease-in-out; 
+        } 
+        img:hover{ 
+        transform: scale(1.5); 
+       } 
+       h2{
+           color: black;
+           background-color: floralwhite;
+           border-radius: 5em;
+           text-align: center;
+           height: 1.5em;
+           width: 5em;
+       }
+
+    </style>
+        <div class="row">
+            <div class="col-xs-12 col-lg-12">
+                <h1>STONE PAPER SCISSORS</h1>s
+            </div>
+        </div>
+        <br>
+        <p><strong>** CLICK PLAY AGAIN AFTER EVERY 2 MOVES **</strong></p>
+        <div class="wrapper">
+            <button class="btn btn-success" style='border-radius: 4em;' onClick="window.location.reload();"><strong>PLAY AGAIN</strong> </button>   
+        </div>
+        <br>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                </div>
+                <div class="col-sm-3">
+                    <h2>PLAYER 1</h2>
+                    <h1 id='score1'></h1>
+                </div>
+                <div class="col-sm-3 offset-sm-1 offset-xs-1">
+                    <h2> PLAYER 2</h2>
+                    <h1 id='score2'></h1>
+                </div>
+                <div class="col-sm-3">
+
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <div class="container">
+            <div class="row"">
+                <div class="col-sm-3 col-md-3 col-xs-6 offset-1">
+                    <div class="jumbotron" id='box1'>
+                        <img src="https://img.icons8.com/color/48/000000/hand-rock.png"/>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-md-3 col-xs-6 offset-1">
+                    <div class="jumbotron" id='box2'>
+                        <img src="https://img.icons8.com/color/48/000000/hand.png"/>
+                     </div>
+                </div>
+                <div class="col-sm-3 col-md-3 col-xs-6 offset-1">
+                    <div class="jumbotron" id='box3'>
+                         <img src="https://img.icons8.com/color/48/000000/hand-peace.png"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+<script>
+        var stone=0,paper=0,sci=0;
+        document.getElementById("box1").onclick=function()
+        {
+            if(stone==1){
+                document.getElementById("score1").innerHTML='DRAW';
+                document.getElementById("score2").innerHTML='DRAW';
+            }
+            else if(paper==1 || sci==1)
+            {
+                if(paper==1)
+                {   document.getElementById("score1").innerHTML='WIN';
+                    document.getElementById("score2").innerHTML='0';
+                    stone=0;paper=0;
+                 }
+                else if(sci==1)
+                {
+                    document.getElementById("score2").innerHTML='WIN';
+                    document.getElementById("score1").innerHTML='0';
+                    stone=0;sci=0;
+                }
+            }
+            stone = 1;
+        }
+
+        document.getElementById("box2").onclick=function()
+        {   if(paper==1){
+                document.getElementById("score1").innerHTML='DRAW';
+                document.getElementById("score2").innerHTML='DRAW';
+            }
+            
+            else if(sci==1 || stone==1)
+            {   
+                if(stone==1)
+                {   document.getElementById("score2").innerHTML="WIN";
+                    document.getElementById("score1").innerHTML="0";
+                    stone=0;paper=0;
+                }
+                else if(sci==1)
+                {   document.getElementById("score1").innerHTML='WIN';
+                    document.getElementById("score2").innerHTML='0';
+                    paper=0;sci=0;
+                }
+            }
+            paper = 1;
+        }
+
+        document.getElementById("box3").onclick=function()
+        {   if(sci==1){
+                document.getElementById("score1").innerHTML='DRAW';
+                document.getElementById("score2").innerHTML='DRAW';
+            }
+            
+            else if(paper==1 || stone==1)
+            {
+                if(stone==1)
+                {   document.getElementById("score1").innerHTML="WIN";
+                    document.getElementById("score2").innerHTML="0";
+                    stone=0;paper=0;
+                }
+                else if(paper==1)
+                {   document.getElementById("score2").innerHTML='WIN';
+                    document.getElementById("score1").innerHTML='0';
+                    paper=0;sci=0;
+                }
+            }
+            sci = 1;
+        }
+    </script>
+</body>
+</html>
+
